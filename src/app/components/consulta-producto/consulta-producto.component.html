@@ -1,0 +1,37 @@
+<p>consulta-producto works!</p>
+
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let i of [1,2,3,4,5]">
+        <div class="cart-item">        
+        <span>Item 1</span><span>4</span>: <strong>{{500 | currency:'EUR'}}</strong>
+        </div>
+    </li>
+
+    <li class="list-group-item active">
+        <strong>Total: {{ 1100 | currency:'EUR'}}</strong>
+    </li>
+</ul>
+
+<div class="row">
+    <div class="cold-md-4" *ngFor="let i of [1,2,3,4,5,6]">
+        <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top p-2" width="100%" [src]="productItem.imageUrl" />
+          
+            <div class="card-body">
+              <p class="card-text">
+                <strong>{{ productItem.price | currency:'INR' }}</strong>
+                <i *ngIf="addedToWishlist" class="fas fa-heart float-right" (click)="handleRemoveFromWishlist()"></i>
+                <i *ngIf="!addedToWishlist" class="far fa-heart float-right" (click)="handleAddToWishlist()"></i>
+              </p>
+              <p class="card-text">{{ productItem.description | slice: 0:80 }}...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-primary product-btn" (click)="handleAddToCart()">Add to
+                    Cart</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary product-btn">View Details</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

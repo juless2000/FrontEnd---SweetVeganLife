@@ -1,0 +1,66 @@
+
+ <div class="main">
+    <input type="checkbox" id="chk" aria-hidden="true">
+<div class="signup"  (submit)="registrarCliente()">
+    <form >
+        <label for="chk" aria-hidden="true">Sign up</label>
+        <div>
+            <input type="datetime" class="form-control" name="firstName"  placeholder="Nombres"  [(ngModel)] = "usuario.firstName"  />
+        </div>
+        <div >
+            <input type="datetime" class="form-control" name="lastName" placeholder="Apellidos"  [(ngModel)] = "usuario.lastName"/>
+        </div>
+        <div >
+            <input type="datetime" class="form-control" name="phone" placeholder="Telefono" [(ngModel)] = "usuario.phone" />
+        </div>
+        <div >
+            <input type="datetime" class="form-control" name="userName" placeholder="Usuario" [(ngModel)] = "usuario.userName"/>
+        </div>
+        <div >
+            <input type="datetime" class="form-control" name="password" placeholder="Contraseña" [(ngModel)] = "usuario.password"/>
+        </div>
+        <div >
+            
+            <select id="ciclo" name="ciclo" class="form-control"  [(ngModel)] = "usuario.rolId">
+                <option disabled selected value="undefined"> Seleccione Rol </option>
+                <option value="1"> cliente </option>
+                <option value="2"> Admin </option>
+            </select>
+        </div>
+        <!-- <div >
+            <select id="ciclo" name="ciclo" class="form-control"  [(ngModel)] = "usuario.documentId">
+                <option disabled selected value="undefined"> Seleccione Tipo Doc </option>
+                <option value="1"> Nacional </option>
+                <option value="2"> Extranjeria </option>
+             
+            </select>
+        </div> -->
+        <div >
+            <select id="ciclo" name="ciclo" class="form-control"  [(ngModel)] = "usuario.shoopId">
+                <option disabled selected value="undefined"> Seleccione Tienda </option>
+                <option value="1"> Makro </option>
+                <option value="2"> Metro </option>
+                <option value="3"> Wong </option>
+               
+            </select>
+        </div>
+        <div >
+            <input type="datetime" class="form-control" placeholder="Número Documento" id="horaFin" [(ngModel)] = "usuario.docNumber"/>
+        </div>
+        <button>Registrarse</button>
+    </form>
+</div>
+
+
+<div class="login">
+    <form>
+        <label for="chk" aria-hidden="true">Login</label>
+        <input type="email" name="email" placeholder="Email" required="">
+        <input type="password" name="pswd" placeholder="Password" required="">
+        <button>Login</button>
+    </form>
+</div>
+
+</div>
+
+
