@@ -14,3 +14,4 @@ export class Usuario {
     enabled?: boolean
 
 }
+
