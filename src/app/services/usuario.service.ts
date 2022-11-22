@@ -20,12 +20,8 @@ export class UsuarioService {
         console.log("password : " + data.password)
         console.log("password : " + data.firstName)
 
-        const headers = new HttpHeaders({
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          });
 
-        return this.http.post(baseURL_cliente, JSON.stringify(data),{headers: headers});
+        return this.http.post(baseURL_cliente, data);
     }
       
 

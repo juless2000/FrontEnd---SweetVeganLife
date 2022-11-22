@@ -49,7 +49,10 @@ export class AuthService {
             "Accept": "application/json"
           });
 
-        return this.http.post(`${this.urlEndPoint}/generate-token`, JSON.stringify(usuario), {headers: headers});
+          console.log("usuario"  + usuario.username);
+          console.log("password"  + usuario.password);
+
+        return this.http.post(`${this.urlEndPoint}/api/auth/iniciarSesion`, JSON.stringify(usuario), {headers: headers});
 
     }
 
@@ -80,5 +83,11 @@ export class AuthService {
     return null;
     }
 
+
+    logout(): void{
+        this._token = null;
+        this._usuario = null;
+        localStorage.clear();
+      }
 
 }

@@ -1,10 +1,12 @@
-<ul class="list-group">
-    <li class="list-group-item" *ngFor="let i of [1,2,3,4,5]">
-        <app-cart-item></app-cart-item>
+<div *ngIf="cartItems.length === 0" class="alert alert-info">Tu Carrito esta Vacio.</div>
+
+<ul *ngIf="cartItems.length > 0" class="list-group">
+    <li class="list-group-item" *ngFor="let item of cartItems let i = index">
+        <app-cart-item [cartItem]="item" [indexItem]="i"></app-cart-item>
     </li>
 
     <li class="list-group-item active">
-        <strong>Total: {{ 1100 | currency:'EUR'}}</strong>
+        <strong>Total: S/.{{ (cartTotal)}}</strong>
     </li>
 </ul>
 

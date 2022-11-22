@@ -53,9 +53,7 @@ export class RegistrarUsuarioComponent implements OnInit {
           this.authService.guardarToken(response.token);
           let usuario = this.authService.usuario;
         },
-        error => {
-          Swal.fire('', 'Credenciales incorrectas', 'error');
-        }
+       
   
       );
     }
@@ -63,6 +61,8 @@ export class RegistrarUsuarioComponent implements OnInit {
     
 
   }
+
+  
 
   ngOnInit(): void {
   }

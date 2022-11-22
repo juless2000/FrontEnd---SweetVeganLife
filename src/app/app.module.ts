@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrarUsuarioComponent } from './components/auth/registrar-usuario/registrar-usuario.component';
@@ -24,6 +23,21 @@ import { AuthComponent } from './components/auth/auth.component';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedComponent } from './components/shared/shared.component';
 import { DefaultModule } from './components/default/default.module';
+import { HeaderClienteComponent } from './components/shopping-cart/header-cliente/header-cliente.component';
+import { ProductoDetailComponent } from './components/shopping-cart/producto-detail/producto-detail.component';
+import { MatCardModule} from "@angular/material/card";
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+import { SharedModule } from './components/shared/shared.module';
+import { ContenidoComponent } from './components/shopping-cart/contenido/contenido.component';
+import { PaymentDetailComponent } from './components/shopping-cart/payment-detail/payment-detail.component';
+import { ConsultarProductoComponent } from './components/modules/consultar-producto/consultar-producto.component';
+import { RegistrarProductoComponent } from './components/modules/registrar-producto/registrar-producto.component';
 //COMPONENTES DEL PROYECTO
 
 
@@ -50,6 +64,12 @@ import { DefaultModule } from './components/default/default.module';
     ProductItemComponent,
     AuthComponent,
     SharedComponent,
+    HeaderClienteComponent,
+    ProductoDetailComponent,
+    ContenidoComponent,
+    PaymentDetailComponent,
+    ConsultarProductoComponent,
+    RegistrarProductoComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +79,16 @@ import { DefaultModule } from './components/default/default.module';
     AppRoutingModule,
     MatButtonModule,
     DefaultModule,
+    MatCardModule,
+    MatGridListModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatDividerModule,
+    MatListModule,
+    MatToolbarModule,
+    MatMenuModule,
+    SharedModule,
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]

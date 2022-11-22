@@ -17,7 +17,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     RouterModule,
     SharedModule,
     BrowserAnimationsModule,
-    MatSidenavModule
+    MatSidenavModule,
   ]
 })
 export class DefaultModule { }
