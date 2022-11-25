@@ -7,11 +7,11 @@ import { Producto } from '../models/producto.model';
 })
 export class CartService {
 
-  cartItems: Producto[] = []
+  cartItems: any[] = []
 
   constructor() { }
 
-  addCart(producto: Producto){
+  addCart(producto: any){
 
 
     this.cartItems.push(producto)
@@ -25,9 +25,11 @@ export class CartService {
     
   }
 
-  getCart() : Producto[]{
+  getCart() : any[]{
     localStorage.setItem("cart",JSON.stringify(this.cartItems));
     return this.cartItems;
   }
+
+  
 
 }

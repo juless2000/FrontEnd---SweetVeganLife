@@ -10,7 +10,7 @@ import { MessengerService } from 'src/app/services/messenger.service';
 })
 export class ProductItemComponent implements OnInit {
 
-  @Input() productItem: Producto
+  @Input() productItem: any
 
   constructor(private router:Router, private msg: MessengerService) { }
 

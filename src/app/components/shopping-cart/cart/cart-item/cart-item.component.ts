@@ -23,21 +23,17 @@ export class CartItemComponent implements OnInit {
   }
 
   removeItem(product_id: number) {
-  
-    console.log("cantidad lista" + this.cartService.getCart().length)  
+    
     
     for (let index = 0; index < this.cartService.getCart().length; index++) {
-       console.log("index:" + index)
-      if(index === product_id){
-        console.log("index found "+ index)
-        this.cartService.getCart().splice(index,1)
-        this.cartComponent.cartTotal-= ( this.cartItem.product_stock * this.cartItem.product_price )
+      if(this.cartService.getCart()[index].productId === product_id){
+        this.cartComponent.cartTotal-= ( this.cartItem.stock * this.cartItem.price )
+        
       }
       
     }
 
   }
-
 
 
 }

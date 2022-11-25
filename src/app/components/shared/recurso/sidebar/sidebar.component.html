@@ -1,8 +1,8 @@
 <mat-nav-list>
     <div class="profile-card">
         <div class="header">
-            <h2>Nombre Completo</h2>
-            <h4>example@email.com</h4>
+            <h2>{{usuario.firstName}}  {{usuario.lastName}}</h2>
+            <!-- <h4>roberto_gomez@hotmail.com</h4> -->
         </div>
         <img src="https://www.shareicon.net/data/128x128/2016/07/26/802001_man_512x512.png" alt="Soufiane FADIL">
     </div>
@@ -11,9 +11,9 @@
 
     <h2 matSubheader>Paginas</h2>
 
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/">Dashboard</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/consultarUsuarios">Consultar Usuarios</a>
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/consultarProducto">Consultar Productos</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/agregarProducto">Pedidos</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/consultarPedido">Consultar Pedidos</a>
 
     <mat-divider></mat-divider>
 

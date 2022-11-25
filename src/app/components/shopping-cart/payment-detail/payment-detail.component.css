@@ -160,7 +160,6 @@ input::-webkit-outer-spin-button{
 .cvv input { letter-spacing: 3px; }
 
 .input-flex{
-    display: flex;
     align-items: center;
     gap: 30px;
 }

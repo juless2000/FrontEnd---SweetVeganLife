@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +38,10 @@ import { ContenidoComponent } from './components/shopping-cart/contenido/conteni
 import { PaymentDetailComponent } from './components/shopping-cart/payment-detail/payment-detail.component';
 import { ConsultarProductoComponent } from './components/modules/consultar-producto/consultar-producto.component';
 import { RegistrarProductoComponent } from './components/modules/registrar-producto/registrar-producto.component';
+import { ConsultarPedidosComponent } from './components/modules/consultar-pedidos/consultar-pedidos.component';
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ConsultarUsuariosComponent } from './components/modules/consultar-usuarios/consultar-usuarios.component';
 //COMPONENTES DEL PROYECTO
 
 
@@ -69,7 +73,9 @@ import { RegistrarProductoComponent } from './components/modules/registrar-produ
     ContenidoComponent,
     PaymentDetailComponent,
     ConsultarProductoComponent,
-    RegistrarProductoComponent
+    RegistrarProductoComponent,
+    ConsultarPedidosComponent,
+    ConsultarUsuariosComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +96,9 @@ import { RegistrarProductoComponent } from './components/modules/registrar-produ
     SharedModule,
  
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true},
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,6 +8,7 @@ export class Producto {
     product_stock?:number;
     product_state?:boolean;
     images?:String;
+    description?: String;
 
     constructor(product_id, product_name, product_description, product_price,product_stock,product_state,images){
         this.product_id = product_id;

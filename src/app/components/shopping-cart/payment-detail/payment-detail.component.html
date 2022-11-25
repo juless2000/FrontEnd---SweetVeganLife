@@ -3,7 +3,7 @@
     <h1 class="heading">
         
         <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="shopping_cart"></mat-icon>
-        Carritos de Compras
+        Carrito de Compras
     </h1>
 
     <div class="item-flex">
@@ -16,24 +16,9 @@
         <section class="checkout">
             <h2 class="section-heading">Detalle Pago</h2>
 
-            <div class="payment-form">
+            <div class="payment-form" (submit)="registrarPedido()">
 
-                <div class="payment-method">
-
-                    <button class="method selected">
-                        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="credit_card"></mat-icon>
-                        <span>Credit Card</span>
-                    
-                    </button>
-
-                    <button class="method">
-                        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="paypal"></mat-icon>
-                        <span>Paypal</span>
-                    </button>
-
-                </div>
-
-                <form action="#">
+                <!-- <form action="#">
                     <div class="cardholder-name">
                         <label for="" class="label-default">Cardholder name</label>
                         <input type="text" id="" class="input-default">
@@ -63,13 +48,58 @@
                             </div>
                         </div>
                     </div>
-                </form>
+                </form> -->
 
+                  <form action="#" class="form-row">
+                    
+                        <label for="" class="label-default">Correo</label>
+                        <input type="text" id="" name="nombre" class="input-default" [(ngModel)]="pedido.email">
+
+                       
+                            <label for="card-number" class="label-default">Direccion de Envío</label>
+                            <input type="text" name="direccion"  class="input-default" [(ngModel)]="pedido.direccion">
+                       
+                            <div class="col-md-6 mb-3">
+                                    <label for="validationCustom03">Ciudad</label>
+                                    <input class="input-default" type="text" name="ciudad"  required [(ngModel)]="pedido.ciudad">
+                                    <div class="invalid-feedback">
+                                      Please provide a valid city.
+                                    </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label >Región</label>
+                                <select  class="custom-select" name = "region" [(ngModel)]="pedido.region">
+                                <option selected disabled value="">Seleccione..<option>
+                                <option >Loreto<option>
+                                <option >Huancavelica</option>
+                                <option >Trujillo</option>
+                                </select>
+                               
+                            </div>
+                                    
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom03">Telefono</label>
+                                <input class="input-default" type="text" name="telefono" required [(ngModel)]="pedido.telefono">
+                                <div class="invalid-feedback">
+                                Please provide a valid city.
+                                </div>
+                            </div>
+                        
+                          <button class="btn btn-primary">
+                            <b>Finalizar</b>  <span id="payAmount"></span>
+                         </button>
+                  
+                </form> 
+
+                
+            
+                   
+                
+
+                
             </div>
 
-            <button class="btn btn-primary">
-                <b>Pay</b> $ <span id="payAmount">2.15</span>
-            </button>
+           
         </section>
 
         <!-- 
@@ -79,15 +109,15 @@
         <section class="cart">
 
             <div class="cart-item-box">
-                <h2 class="section-heading">Order Summary</h2>
+                <h2 class="section-heading">Resumen Bolsa</h2>
                 <div class="product-card" *ngFor="let item of cartItems let i = index">
                     <div class="card">
                         <div class="img-box">
-                            <img src="{{item.images}}" alt="Cake" class="product-img" width="100px">
+                            <img src="{{item.images[0].imageUrl}}" alt="Cake" class="product-img" width="100px">
                         </div>
 
                         <div class="detail">
-                            <h4 class="product-name">{{item.product_name}}</h4>
+                            <h4 class="product-name">{{item.name}}</h4>
 
                             <div class="wrapper">
                                 <div class="product-qty">
@@ -95,7 +125,7 @@
                                         <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="remove"></mat-icon>
                                     </button>
 
-                                    <span id="quantity">{{item.product_stock}}</span>
+                                    <span id="quantity">{{item.stock}}</span>
 
                                     <button id="increment">
                                         <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon>
@@ -103,7 +133,7 @@
                                 </div>
 
                                 <div class="price">
-                                    S/.<span id="price">{{item.product_price}}</span>
+                                    S/.<span id="price">{{item.price}}</span>
                                 </div>
                             </div>
 
@@ -122,12 +152,12 @@
 
                 <div class="discount-token">
 
-                    <label for="discount-token" class="label-default">Gift Card/Discount code</label>
+                    <label for="discount-token" class="label-default">Tarjeta/Código Descuento</label>
                     
                     <div class="wrapper-flex">
                         <input type="text" name="discount-token" id="discount-token" class="input-default">
 
-                        <button class="btn btn-outline">Apply</button>
+                        <button class="btn btn-outline">Aplicar</button>
                     </div>
                 </div>
 

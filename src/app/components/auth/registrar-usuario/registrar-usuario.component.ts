@@ -48,18 +48,23 @@ export class RegistrarUsuarioComponent implements OnInit {
         response => {
           console.log("ingreso login");
           console.log(response);
-          this.router.navigate(['']);
-          this.authService.guardarUsuario(response.token);
+          
+          this.authService.guardarUsuario(response);
           this.authService.guardarToken(response.token);
-          let usuario = this.authService.usuario;
+
+          console.log("rol : " + response.rol.rolId);
+          if ( response.rol.rolId == 1) {
+             this.router.navigate(['shoppingCart']);
+          }else {
+            console.log("ingreso admin")
+            this.router.navigate(['']);
+
+          }
+
+
         },
-       
-  
       );
     }
-
-    
-
   }
 
   

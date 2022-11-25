@@ -18,13 +18,10 @@ export class AuthService {
     constructor(private http:HttpClient) {}
 
     public get usuario(): Usuario{
-        if(this._usuario != null){
-        return this._usuario;
-        }else if(this._usuario == null && localStorage.getItem('usuario') != null){
+       
         this._usuario = JSON.parse(localStorage.getItem('usuario')) as Usuario;
+     
         return this._usuario;
-        }
-        return new Usuario();
     }
 
     public get token(): string{
@@ -57,23 +54,18 @@ export class AuthService {
     }
 
 
-    guardarUsuario(token: string): void{
-        let payload = this.obtenerDatosToken(token);
-        console.log("my payload ");
-        console.log(JSON.stringify(payload));
-        
-        this._usuario = new Usuario();
-        this._usuario.firstName = payload.firstName;
-        this._usuario.lastName = payload.lastName;
-        this._usuario.docNumber = payload.docNumber;
-  
-        localStorage.setItem('usuario', JSON.stringify(this._usuario));
-      }
+    guardarUsuario(user: string): void{
+      
+        localStorage.setItem('usuario', JSON.stringify(user));
+
+    }
     
-      guardarToken(token: string): void{
+    guardarToken(token: string): void{
+
         this._token = token;
         localStorage.setItem('token', token);
-      }
+    
+    }
 
 
     obtenerDatosToken(token: string){

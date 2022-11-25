@@ -14,6 +14,9 @@ import { ProductoDetailComponent } from './components/shopping-cart/producto-det
 import { PaymentDetailComponent } from './components/shopping-cart/payment-detail/payment-detail.component';
 import { ConsultarProductoComponent } from './components/modules/consultar-producto/consultar-producto.component';
 import { RegistrarProductoComponent } from './components/modules/registrar-producto/registrar-producto.component';
+import { ConsultarPedidosComponent } from './components/modules/consultar-pedidos/consultar-pedidos.component';
+import { ProductListComponent } from './components/shopping-cart/product-list/product-list.component';
+import { ConsultarUsuariosComponent } from './components/modules/consultar-usuarios/consultar-usuarios.component';
 
 const routes: Routes = [
     //IMPORTAMOS EL PATH DEL COMPONENTE
@@ -23,12 +26,15 @@ const routes: Routes = [
     {path:"shoppingCart/:id", component:ShoppingCartComponent},  
     {path:"registrarUsuario", component:RegistrarUsuarioComponent}, 
     {path:"productoDetalle/:id",component:ProductoDetailComponent}, 
+    {path:"catalogoProducto",component:ProductListComponent},
     {path:"paymentDetail", component:PaymentDetailComponent}, 
     {path:'', component: DefaultComponent,
     children: [
     {path: '',component: DashboardComponent},
     {path: 'consultarProducto',component : ConsultarProductoComponent},
-    {path: 'agregarProducto',component : RegistrarProductoComponent}
+    {path: 'agregarProducto',component : RegistrarProductoComponent},
+    {path: 'consultarPedido',component : ConsultarPedidosComponent},
+    {path: 'consultarUsuarios',component : ConsultarUsuariosComponent}
 
     ]}
 

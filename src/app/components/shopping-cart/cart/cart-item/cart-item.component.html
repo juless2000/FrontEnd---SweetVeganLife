@@ -1,9 +1,9 @@
 
 <div class="cart-item">        
-    <span>{{ cartItem.product_name }}</span> x
-    <span>{{ cartItem.product_stock }}</span>: 
-    <strong>S/.{{(cartItem.product_stock * cartItem.product_price )}}</strong>
-    <button (click)="removeItem(indexItem)" id="product-close-btn" style="border: none;background : none;">
+    <span>{{ cartItem.name }}</span> x
+    <span>{{ cartItem.stock }}</span>: 
+    <strong>S/.{{(cartItem.stock * cartItem.price )}}</strong>
+    <button (click)="removeItem(cartItem.productId)" id="product-close-btn" style="border: none;background : none;">
         <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="close"></mat-icon>
     </button>
 </div>

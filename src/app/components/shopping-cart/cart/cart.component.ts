@@ -23,60 +23,47 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.msg.getMsg().subscribe((product: Producto) => {
+
+    this.msg.getMsg().subscribe((product: any) => {
+      // this.cartItems.push(product)
       this.addProductToCart(product)
     })
 
-    console.log(this.cartService.getCart())
-    this.cartItems = this.cartService.getCart();
+    // console.log(this.cartService.getCart())
+    // this.cartItems = this.cartService.getCart();
 
   }
 
-  addProductToCart(product: Producto) {
 
-    console.log("add producto")
+  addProductToCart(product: any) {
 
+    console.log( this.cartService.getCart())
     
     let productExists = false
 
     for ( let i in this.cartService.getCart()){
-      if(this.cartService.getCart()[i].product_id === product.product_id){
-        this.cartService.getCart()[i].product_stock++;
+    
+      if(this.cartService.getCart()[i].productId === product.productId){
+        console.log("ingreso if ")
+        this.cartService.getCart()[i].stock++;
         productExists = true
+        this.cartItems = this.cartService.getCart();
         break;
       }
     }
 
-    console.log("ingreso" + this.cartItems);
 
     if(!productExists){
+      product.stock = 1
       this.cartService.addCart(product)
+      this.cartItems = this.cartService.getCart();
     }
     
-    this.cartItems = this.cartService.getCart();
-    // let productExists = false
-
-    // for (let i in this.cartItems) {
-    //   if (this.cartItems[i].product_id === product.product_id){
-    //     this.cartItems[i].product_stock++
-    //     productExists = true
-    //     break;
-    //   }
-    // }
-
-    // if (!productExists) {
-    //   this.cartItems.push({
-    //     product_id: product.product_id,
-    //     product_name: product.product_name,
-    //     product_stock: 1,
-    //     product_price: product.product_price
-    //   })
-      
-    // }
-
+    
+ 
     this.cartTotal = 0
     this.cartService.getCart().forEach(item => {
-      this.cartTotal += ( item.product_stock * item.product_price )
+      this.cartTotal += ( item.stock * item.price )
     })
 
         

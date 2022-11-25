@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/models/usuario.model';
+import { AuthService } from 'src/app/services/auth.service';
+import { UsuarioService } from '../../../../services/usuario.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  usuario : Usuario = {
 
-  ngOnInit(): void {
   }
 
-}
+  constructor(private authService: AuthService) {
+    this.getUser();
+
+  }
+
+  ngOnInit(): void {
+   
+   
+  }
+
+  getUser(){
+    console.log(this.authService.usuario)
+    this.usuario = this.authService.usuario
+  }
+
+} 

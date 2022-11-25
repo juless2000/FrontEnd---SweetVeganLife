@@ -10,16 +10,15 @@ import { ProductoService } from '../../../services/producto.service';
 })
 export class ProductListComponent implements OnInit {
  
-   productoList = [] 
+   productoList:any[] = []
 
   constructor(private router:Router, private productoService: ProductoService) {
 
-    this.consultarProducto();
-
+   
    }
 
   ngOnInit(): void {
-
+    this.consultarProductoFromService();
   }
 
 
@@ -29,6 +28,20 @@ export class ProductListComponent implements OnInit {
     this.productoList = this.productoService.getProductos();
 
       this.productoList as Producto
+
+  }
+
+  consultarProductoFromService(){
+
+    console.log("ingreso service")
+    this.productoService.getProductosFromService().subscribe(
+      response =>{
+        this.productoList  = response.products
+        // console.log("respuesta : " + response.)
+      }
+
+    )
+
 
   }
 

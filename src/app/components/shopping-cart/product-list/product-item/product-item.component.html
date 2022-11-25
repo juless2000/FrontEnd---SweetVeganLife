@@ -1,21 +1,23 @@
+<button type="button" style="background: none; border : none" (click)="toDetailProduct(productItem.productId)">
 <div class="card mb-4 shadow-sm border-0" style="text-align: center;">
   <img  style="width: 200px;margin-left: auto;
   margin-right: auto;
-  display: block;" width="100%" src="{{productItem.images}}"/>
+  display: block;" width="100%" src="{{productItem.images[0].imageUrl}}"/>
 
   <div class="card-body"  >
     <p class="card-text">
       <title>PlaceHolder</title>
-      <strong>S/.{{productItem.product_price}} </strong>
+      <strong>S/.{{productItem.price}} </strong>
       <i class="fas fa-heart float-right" ></i>
       <i  class="far fa-heart float-right" ></i>
     </p>
-    <p class="card-text"> {{productItem.product_name}}</p>
+    <p class="card-text"> {{productItem.name}}</p>
     <div style="text-align: center;" >
       
-        <button type="button" class="btn btn-sm btn-primary product-btn" (click)="handlerAddToCart()">Agregar al carrito</button>
-        <button  (click)="toDetailProduct(productItem.product_id)" type="button" class="btn btn-sm btn-primary product-btn">Ver Producto</button>
-   
+        <!-- <button type="button" class="btn btn-sm btn-primary product-btn" (click)="handlerAddToCart()">Agregar al carrito</button>
+        <button   type="button" class="btn btn-sm btn-primary product-btn">Ver Producto</button>
+    -->
     </div>
   </div>
 </div>
+</button>

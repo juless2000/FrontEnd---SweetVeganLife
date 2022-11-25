@@ -5,13 +5,15 @@ import { Observable } from 'rxjs';
 import { Usuario } from '../models/usuario.model';
 import { Producto } from '../models/producto.model';
 
-const baseURL_cliente = 'http://localhost:8090/';
 
 @Injectable({
     providedIn: 'root'
   })
 export class ProductoService {
   
+
+    baseURL_cliente = 'http://localhost:8090';
+
     productos : Producto[] = [
         new Producto(1,"Pastel de Avellanas", "Cake Pink",25.00, 1,true, "../../../../../assets/imagenes/product_cake1.png"),
         new Producto(2,"Tarta de zanahoria", "Tarta de zanahoria, almendra y chocolate blanco",100.00, 1,true, "../../../../../assets/imagenes/product_cake1.png"),
@@ -23,6 +25,7 @@ export class ProductoService {
     ]
 
     constructor(private http:HttpClient) { }
+
 
     getProductos(): Producto[]{
 
@@ -37,6 +40,28 @@ export class ProductoService {
     saveShoppingCart(usuario: Usuario){
 
         localStorage.setItem('shoppingCart', JSON.stringify(usuario));
+            
+    }
+
+
+    getProductosFromService():Observable<any> {
+
+          console.log("ingreso service producto")
+
+            const httpHeaders = new HttpHeaders({
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': 'Basic '
+            })
+            
+            const headers = new HttpHeaders({
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+              });
+    
+         
+            return this.http.get<any>(`${this.baseURL_cliente}/api/products/list`);
+    
+        
 
     }
 
