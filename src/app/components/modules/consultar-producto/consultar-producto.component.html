@@ -47,7 +47,7 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Fecha ingreso</th>
+                                    <th scope="col">Imagen</th>
                                     <th scope="col">Precio</th>
                                     <th scope="col">Stock</th>
                                     <th scope="col">Descripcion</th>
@@ -55,30 +55,30 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr *ngFor="let producto of productoList; let i = index">
                                     <td>
                                         <a class="text-heading font-semibold" href="#">
-                                            Tarta de zanahoria
+                                            {{producto.name}}
                                         </a>
                                     </td>
                                     <td>
-                                        Noviembre 15, 2022
+                                        <img alt="..." src="{{producto.images[0].imageUrl}}" class="avatar avatar-lg rounded-circle me-2">
                                     </td>
                                     <td>
                                         <a class="text-heading font-semibold" href="#">
-                                           100.00
+                                           {{producto.price}}
                                         </a>
                                     </td>
                                     <td>
-                                        10
+                                        {{producto.stock}}
                                     </td>
                                     <td>
                                         <span>
-                                            <i class="bg-success"></i>Bizcocho de zanahoria rellena.
+                                            <i class="bg-success"></i>{{producto.description}}
                                         </span>
                                     </td>
                                     <td class="text-end">
-                                        <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover">
+                                        <button type="button" (click)="eliminarProducto(producto.productId)" class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                             <i class="bi bi-trash"></i>
                                         </button>
                                     </td>

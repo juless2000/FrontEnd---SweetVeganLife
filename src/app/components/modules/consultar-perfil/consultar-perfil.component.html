@@ -1,0 +1,43 @@
+
+  
+  
+  <div class="panel-heading"> 
+    <h3 class="panel-title">Mis Datos Personales</h3> 
+    </div> 
+    <div class="panel-body" (submit)="editarUsuario()">
+      
+    <form action="designer-finish.html" class="form-horizontal" role="form" >
+  
+      
+        <label for="name" class="col-sm-3 control-label">Nombre</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" name="firstName" id="firstName" [(ngModel)]="usuario.firstName" placeholder="Nombre">
+        </div>
+        <br>
+        <label for="name" class="col-sm-3 control-label">Apellido</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" name="lastName" id="lastName" [(ngModel)]="usuario.lastName" placeholder="Apellido">
+        </div>
+        <label for="name" class="col-sm-3 control-label">DNI</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" name="name" id="name"  placeholder="DNI">
+        </div>
+    
+        <label for="name" class="col-sm-3 control-label">Email</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" name="name" id="name" placeholder="Email">
+        </div>
+    
+        <label for="about" class="col-sm-3 control-label">Telefono</label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" name="phone" id="name" [(ngModel)]="usuario.phone" placeholder="Telefono">
+        </div>
+      <hr>
+  
+      <button class="btn d-inline-flex btn-sm btn-primary mx-1">Guardar</button>
+  
+    </form>
+      
+    </div><!-- panel-body // -->
+  
+  

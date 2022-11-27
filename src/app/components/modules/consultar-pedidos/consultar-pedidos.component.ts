@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Pedido } from 'src/app/models/pedido.model';
 import { PedidoService } from '../../../services/pedido.service';
 
@@ -11,7 +12,7 @@ export class ConsultarPedidosComponent implements OnInit {
 
   public pedidosList: Pedido[] = []
 
-  constructor(private pedidoService: PedidoService) { }
+  constructor(private pedidoService: PedidoService, private router:Router) { }
 
   ngOnInit(): void {
     
@@ -29,6 +30,14 @@ export class ConsultarPedidosComponent implements OnInit {
         console.log("pedidos: "  + element.direccion);
     });
 
+  }
+
+  detalleProducto(index : number){
+    
+    console.log("ingreso")
+    this.router.navigate(['consultarPedidoDetalle/'+index]);
+
+    
   }
 
 }
