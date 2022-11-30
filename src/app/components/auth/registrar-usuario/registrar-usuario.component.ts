@@ -17,9 +17,13 @@ export class RegistrarUsuarioComponent implements OnInit {
   usuario: Usuario = {
     image : null,
     enabled : true,
-    documentId : 1
+    documentId : 1,
+    rolId : 2,
+    shoopId : 1
   };
 
+
+  
   userLogin:UsuarioLogin ={}
 
   constructor(private usuarioService: UsuarioService, private authService: AuthService,private router: Router) { }
@@ -29,8 +33,11 @@ export class RegistrarUsuarioComponent implements OnInit {
     this.usuarioService.registrarUsuario(this.usuario).subscribe(
       response => {
         console.log(response.message);
-        alert(response.message);
-        Swal.fire('', 'Registrado correctamente',);
+        Swal.fire('', 'Registrado correctamente','success');
+        this.usuario = {
+
+        }
+
       },
       error => {
         console.log(error);
@@ -48,12 +55,13 @@ export class RegistrarUsuarioComponent implements OnInit {
         response => {
           console.log("ingreso login");
           console.log(response);
+
           
           this.authService.guardarUsuario(response);
           this.authService.guardarToken(response.token);
 
           console.log("rol : " + response.rol.rolId);
-          if ( response.rol.rolId == 1) {
+          if ( response.rol.rolId == 2) {
              this.router.navigate(['shoppingCart']);
           }else {
             console.log("ingreso admin")

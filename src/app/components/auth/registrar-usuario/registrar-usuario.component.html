@@ -19,14 +19,14 @@
         <div >
             <input type="datetime" class="form-control" name="password" placeholder="Contraseña" [(ngModel)] = "usuario.password"/>
         </div>
-        <div >
+        <!-- <div >
             
             <select id="ciclo" name="ciclo" class="form-control"  [(ngModel)] = "usuario.rolId">
                 <option disabled selected value="undefined"> Seleccione Rol </option>
                 <option value="1"> cliente </option>
                 <option value="2"> Admin </option>
             </select>
-        </div>
+        </div> -->
         <!-- <div >
             <select id="ciclo" name="ciclo" class="form-control"  [(ngModel)] = "usuario.documentId">
                 <option disabled selected value="undefined"> Seleccione Tipo Doc </option>
@@ -35,7 +35,7 @@
              
             </select>
         </div> -->
-        <div >
+        <!-- <div >
             <select id="ciclo" name="ciclo" class="form-control"  [(ngModel)] = "usuario.shoopId">
                 <option disabled selected value="undefined"> Seleccione Tienda </option>
                 <option value="1"> Makro </option>
@@ -43,9 +43,9 @@
                 <option value="3"> Wong </option>
                
             </select>
-        </div>
+        </div> -->
         <div >
-            <input type="datetime" class="form-control" placeholder="Número Documento" id="horaFin" [(ngModel)] = "usuario.docNumber"/>
+            <input type="datetime" class="form-control" placeholder="Número Documento" id="horaFin" name="docNumber" [(ngModel)] = "usuario.docNumber"/>
         </div>
         <button>Registrarse</button>
     </form>
@@ -57,6 +57,7 @@
         <label for="chk" aria-hidden="true">Login</label>
         <input type="usuario" name="username" placeholder="Usuario" required="true" [(ngModel)] = "userLogin.username">
         <input type="password" name="password" placeholder="Password" required="true" [(ngModel)] = "userLogin.password">
+        <a href="" routerLink="/recuperarPassword" class="forgot">Olvidaste tu contraseña?</a>
         <button (click)="login()" >Login</button>
     </form>
 </div>
