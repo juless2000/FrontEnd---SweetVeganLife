@@ -33,13 +33,13 @@
                                     <th scope="col">Descripcion</th>
                                     <th scope="col">Precio Producto</th>
                                     <th scope="col">Fecha Compra</th>
-                                    <th scope="col">Cantidad</th>
-                                    <th scope="col">Imagen</th>
+                                    <th scope="col">Accion</th>
+                                    <!-- <th scope="col">Imagen</th> -->
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr *ngFor="let pedido of pedidoUsaurio let i = index">
                                     <!-- <td>
                                         <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2">
                                         <a class="text-heading font-semibold" href="#">
@@ -72,30 +72,32 @@
                                     <td>
 
                                         <a class="text-heading font-semibold" href="#">
-                                            id
+                                            {{pedido.id}}
                                         </a>
 
                                     </td>
                                     <td>
-                                        Juan Paquiyauri
+                                        {{ nombresCompletos}}
                                     </td>
                                     <td>
-                                        total
+                                        {{pedido.finalAmount}}
                                     </td>
                                     <td>
-                                        Noviembre 23, 2022
+                                        {{ pedido.orderDate}}
                                     </td>
                                     <td>
-                                        <!-- <a href="#"  mat-list-item routerLinkActive="list-item-active" routerLink="/agregarProducto" class="btn d-inline-flex btn-sm btn-primary mx-1">
-                                            <span class=" pe-2">
-                                                <i class="bi bi-plus"></i>
-                                            </span>
-                                            <span>Detalle</span>
-                                          
-                                        </a> -->
+                                        <button (click)="detalleProducto(pedido.id)">
+                                            <a  mat-list-item routerLinkActive="list-item-active"  class="btn d-inline-flex btn-sm btn-primary mx-1">
+                                                <span class=" pe-2">
+                                                    <i class="bi bi-plus"></i>
+                                                </span>
+                                                <span>Detalle</span>
+                                            
+                                            </a>
+                                        </button>
                                     </td>
                                     <td>
-                                        <img alt="..." src="https://vengalifestorage.blob.core.windows.net/veganimages/cake_02.png" class="avatar avatar-lg rounded-circle me-2">
+                                        <!-- <img alt="..." src="https://vengalifestorage.blob.core.windows.net/veganimages/cake_02.png" class="avatar avatar-lg rounded-circle me-2"> -->
                                     </td>
                                 </tr>
                             </tbody>

@@ -11,26 +11,31 @@
       
         <label for="name" class="col-sm-3 control-label">Nombre</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" name="firstName" id="firstName" [(ngModel)]="usuario.firstName" placeholder="Nombre">
+          <input type="text" class="form-control" name="userFirstNames" id="firstName" [(ngModel)]="usuario.userFirstNames" placeholder="Nombre">
         </div>
         <br>
         <label for="name" class="col-sm-3 control-label">Apellido</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" name="lastName" id="lastName" [(ngModel)]="usuario.lastName" placeholder="Apellido">
+          <input type="text" class="form-control" name="userLastName" id="lastName" [(ngModel)]="usuario.userLastName" placeholder="Apellido">
         </div>
         <label for="name" class="col-sm-3 control-label">DNI</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" name="name" id="name"  placeholder="DNI">
+          <input type="text" class="form-control" name="dniNumber" id="name"  placeholder="DNI" [(ngModel)]="usuario.dniNumber">
         </div>
     
-        <label for="name" class="col-sm-3 control-label">Email</label>
+        <!-- <label for="name" class="col-sm-3 control-label">Email</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" name="name" id="name" placeholder="Email">
-        </div>
+          <input type="text" class="form-control" name="name" id="name" placeholder="Email"> 
+        </div> -->
     
+        <label for="name" class="col-sm-3 control-label">Username</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" name="userName" id="name" placeholder="Username" [(ngModel)]="usuario.userName"> 
+        </div>
+
         <label for="about" class="col-sm-3 control-label">Telefono</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" name="phone" id="name" [(ngModel)]="usuario.phone" placeholder="Telefono">
+            <input type="text" class="form-control" name="userPhone" id="name" [(ngModel)]="usuario.userPhone" placeholder="Telefono">
         </div>
       <hr>
   

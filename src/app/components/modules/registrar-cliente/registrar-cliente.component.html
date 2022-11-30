@@ -4,45 +4,53 @@
   <div class="panel-heading"> 
     <h3 class="panel-title">Agregar Usuario</h3> 
     </div> 
-    <div class="panel-body">
+    <div class="panel-body" (submit)="registrarCliente()">
       
     <form action="designer-finish.html" class="form-horizontal" role="form">
   
       
         <label for="name" class="col-sm-3 control-label">Nombre</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" name="name" id="name" placeholder="Nombre">
+          <input type="text" class="form-control" name="usuario.firstName" id="name" placeholder="Nombre" [(ngModel)] = "usuario.firstName">
         </div>
         <br>
         <label for="name" class="col-sm-3 control-label">Apellido</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" name="name" id="name" placeholder="Apellido">
+          <input type="text" class="form-control" name="usuario.lastName" id="Apellido" placeholder="Apellido" [(ngModel)] = "usuario.lastName">
         </div>
         <label for="name" class="col-sm-3 control-label">Telefono</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" name="name" id="name" placeholder="Telefono">
+          <input type="text" class="form-control" name="usuario.phone" id="name" placeholder="Telefono" [(ngModel)] = "usuario.phone">
         </div>
     
         <label for="name" class="col-sm-3 control-label">Usuario</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" name="name" id="name" placeholder="Usuario">
+          <input type="text" class="form-control" name="usuario.userName" id="name" placeholder="Usuario" [(ngModel)] = "usuario.userName">
         </div>
     
         <label for="about" class="col-sm-3 control-label">Contraseña</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" name="qty" id="qty" placeholder="Contraseña">
+            <input type="text" class="form-control" name="usuario.password" id="qty" placeholder="Contraseña" [(ngModel)] = "usuario.password">
         </div>
-   
+        <br>
+
+        <select id="ciclo" class="col-sm-3 control-label" name="ciclo" class="form-control"  style="width: 300px;margin-left: 10px;" [(ngModel)] = "usuario.rolId">
+          <option disabled selected value="undefined"> Seleccione Rol </option>
+          <option value="1"> Administrador </option>
+          <option value="2"> Cliente </option>
+       </select>
   
+       <br>
+
         <label for="qty" class="col-sm-3 control-label">Número documento</label>
         <div class="col-sm-3">
-       <input type="text" class="form-control" name="qty" id="qty" placeholder="Número documento">
+       <input type="text" class="form-control" name="usuario.docNumber" id="qty" placeholder="Número documento" [(ngModel)] = "usuario.docNumber">
         </div>
    
-        <label for="name" class="col-sm-3 control-label">Imagen</label>
+        <!-- <label for="name" class="col-sm-3 control-label">Imagen</label>
         <div class="col-sm-3">
           <label class="control-label small" for="file_img"></label> <input type="file" name="file_img">
-        </div>
+        </div> -->
     
       <hr>
   

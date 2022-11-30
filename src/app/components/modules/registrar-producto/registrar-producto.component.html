@@ -4,23 +4,23 @@
   <div class="panel-heading"> 
   <h3 class="panel-title">Agregar Producto</h3> 
   </div> 
-  <div class="panel-body">
+  <div class="panel-body" (submit)="onSubmit()">
     
   <form action="designer-finish.html" class="form-horizontal" role="form">
 
     
       <label for="name" class="col-sm-3 control-label">Nombre</label>
       <div class="col-sm-3">
-        <input type="text" class="form-control" name="name" id="name" placeholder="Nombre Producto">
+        <input type="text" class="form-control" name="name" id="name" placeholder="Nombre Producto" [(ngModel)] = "producto.name" >
       </div>
       <br>
       <label for="name" class="col-sm-3 control-label">Stock</label>
       <div class="col-sm-3">
-        <input type="text" class="form-control" name="name" id="name" placeholder="Stock">
+        <input type="text" class="form-control" name="stock" id="name" placeholder="Stock" [(ngModel)] = "producto.stock" >
       </div>
       <label for="name" class="col-sm-3 control-label">Precio</label>
       <div class="col-sm-3">
-        <input type="text" class="form-control" name="name" id="name" placeholder="Precio">
+        <input type="text" class="form-control" name="price" id="name" placeholder="Precio" [(ngModel)] = "producto.price">
       </div>
   
       <label for="name" class="col-sm-3 control-label">Fecha de Ingreso</label>
@@ -30,20 +30,31 @@
   
       <label for="about" class="col-sm-3 control-label">Descripcion</label>
       <div class="col-sm-3">
-        <textarea class="form-control"></textarea>
+
+        <textarea class="form-control" name="description"  [(ngModel)] = "producto.description"></textarea>
       </div>
  
+      <select id="ciclo" class="col-sm-3 control-label" name="subcategoryId" class="form-control"  style="margin-top: 10px;width: 300px;margin-left: 10px;" [(ngModel)] = "producto.subcategoryId">
+        <option disabled selected value="undefined"> Seleccione Categoria </option>
+        <option value="1"> Postre </option>
+        <option value="2"> Bebida </option>
+        <option value="3"> Cupcake </option>
+        <option value="4"> Navideño </option>
+     </select>
 
-      <label for="qty" class="col-sm-3 control-label">Proveedor</label>
+      <!-- <label for="qty" class="col-sm-3 control-label">Proveedor</label>
       <div class="col-sm-3">
      <input type="text" class="form-control" name="qty" id="qty" placeholder="Proveedor">
-      </div>
+      </div> -->
  
       <label for="name" class="col-sm-3 control-label">Imagen</label>
       <div class="col-sm-3">
-        <label class="control-label small" for="file_img"></label> <input type="file" name="file_img">
+        <label class="control-label small" for="file_img"></label> <input type="file" accept="image/*" #fileUploader (change)="showPreview($event)" name="file_img">
+      
       </div>
-  
+      <div>
+        <img src="{{imgSrc}}" width="350px" height="250px" (click)="fileUploader.click()" alt="">
+      </div>
     <hr>
 
     <button class="btn d-inline-flex btn-sm btn-primary mx-1">Agregar</button>
